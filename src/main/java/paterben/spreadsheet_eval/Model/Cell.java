@@ -6,14 +6,19 @@ import java.util.List;
  * A cell at a given row and column, containing an expression.
  */
 public class Cell {
-    private Column column;
-    private int row;
+    private CellId id;
     private List<Token> expression;
 
-    public Cell(Column column, int row, List<Token> expression) {
-        this.column = column;
-        this.row = row;
+    public Cell(CellId id, List<Token> expression) {
         this.expression = expression;
+    }
+
+    public CellId getId() {
+        return id;
+    }
+
+    public void setId(CellId id) {
+        this.id = id;
     }
 
     public List<Token> getExpression() {
@@ -24,28 +29,11 @@ public class Cell {
         this.expression = expression;
     }
 
-    public Column getColumn() {
-        return column;
-    }
-
-    public void setColumn(Column column) {
-        this.column = column;
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((column == null) ? 0 : column.hashCode());
-        result = prime * result + row;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((expression == null) ? 0 : expression.hashCode());
         return result;
     }
@@ -59,12 +47,10 @@ public class Cell {
         if (getClass() != obj.getClass())
             return false;
         Cell other = (Cell) obj;
-        if (column == null) {
-            if (other.column != null)
+        if (id == null) {
+            if (other.id != null)
                 return false;
-        } else if (!column.equals(other.column))
-            return false;
-        if (row != other.row)
+        } else if (!id.equals(other.id))
             return false;
         if (expression == null) {
             if (other.expression != null)
@@ -76,6 +62,6 @@ public class Cell {
 
     @Override
     public String toString() {
-        return "Cell [column=" + column + ", row=" + row + ", expression=" + expression + "]";
+        return "Cell [id=" + id + ", expression=" + expression + "]";
     }
 }

@@ -12,8 +12,8 @@ import org.junit.jupiter.api.Test;
 import paterben.spreadsheet_eval.Model.BinaryOperatorToken;
 import paterben.spreadsheet_eval.Model.BinaryOperatorTokenType;
 import paterben.spreadsheet_eval.Model.Cell;
+import paterben.spreadsheet_eval.Model.CellId;
 import paterben.spreadsheet_eval.Model.CellReferenceToken;
-import paterben.spreadsheet_eval.Model.Column;
 import paterben.spreadsheet_eval.Model.NumberToken;
 
 public class CsvParserTest {
@@ -32,19 +32,19 @@ public class CsvParserTest {
         assertThat(rows).hasSize(2);
         assertThat(rows.get(0)).hasSize(3);
         assertThat(rows.get(0)).containsExactly(
-                new Cell(new Column("A"), 1, List.of(
+                new Cell(new CellId("A", 1), List.of(
                         new NumberToken(10))),
-                new Cell(new Column("B"), 1, List.of(
+                new Cell(new CellId("B", 1), List.of(
                         new NumberToken(1), new NumberToken(3), new BinaryOperatorToken(BinaryOperatorTokenType.ADD))),
-                new Cell(new Column("C"), 1, List.of(
+                new Cell(new CellId("C", 1), List.of(
                         new NumberToken(2), new NumberToken(3), new BinaryOperatorToken(BinaryOperatorTokenType.SUB))));
         assertThat(rows.get(1)).hasSize(2);
         assertThat(rows.get(1)).containsExactly(
-                new Cell(new Column("A"), 2, List.of(
-                        new CellReferenceToken(new Column("B"), 1), new CellReferenceToken(new Column("B"), 2),
+                new Cell(new CellId("A", 2), List.of(
+                        new CellReferenceToken(new CellId("B", 1)), new CellReferenceToken(new CellId("B", 2)),
                         new BinaryOperatorToken(BinaryOperatorTokenType.MULT))),
-                new Cell(new Column("B"), 2, List.of(
-                        new CellReferenceToken(new Column("A"), 1))));
+                new Cell(new CellId("B", 2), List.of(
+                        new CellReferenceToken(new CellId("A", 1)))));
     }
 
     @Test

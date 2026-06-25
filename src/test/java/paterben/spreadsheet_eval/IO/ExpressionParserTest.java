@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import paterben.spreadsheet_eval.Model.BinaryOperatorToken;
 import paterben.spreadsheet_eval.Model.BinaryOperatorTokenType;
+import paterben.spreadsheet_eval.Model.CellId;
 import paterben.spreadsheet_eval.Model.CellReferenceToken;
-import paterben.spreadsheet_eval.Model.Column;
 import paterben.spreadsheet_eval.Model.NumberToken;
 
 public class ExpressionParserTest {
@@ -17,8 +17,8 @@ public class ExpressionParserTest {
         assertThat(
                 ExpressionParser.parseExpressionIntoTokens(" a1   b1 + 2 / "))
                 .containsExactly(
-                        new CellReferenceToken(new Column("A"), 1),
-                        new CellReferenceToken(new Column("B"), 1),
+                        new CellReferenceToken(new CellId("A", 1)),
+                        new CellReferenceToken(new CellId("B", 1)),
                         new BinaryOperatorToken(BinaryOperatorTokenType.ADD),
                         new NumberToken(2),
                         new BinaryOperatorToken(BinaryOperatorTokenType.DIV));

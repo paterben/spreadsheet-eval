@@ -13,6 +13,7 @@ import org.apache.commons.csv.CSVRecord;
 
 import paterben.spreadsheet_eval.Core.ColumnGenerator;
 import paterben.spreadsheet_eval.Model.Cell;
+import paterben.spreadsheet_eval.Model.CellId;
 import paterben.spreadsheet_eval.Model.Token;
 
 public class CsvParser {
@@ -38,7 +39,7 @@ public class CsvParser {
             ColumnGenerator columnGenerator = new ColumnGenerator();
             for (String expr : csvRecord) {
                 List<Token> tokens = ExpressionParser.parseExpressionIntoTokens(expr);
-                Cell cell = new Cell(columnGenerator.Next(), rowNum, tokens);
+                Cell cell = new Cell(new CellId(columnGenerator.Next(), rowNum), tokens);
                 row.add(cell);
             }
             rows.add(row);

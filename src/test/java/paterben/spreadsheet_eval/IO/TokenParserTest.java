@@ -8,18 +8,18 @@ import org.junit.jupiter.api.Test;
 
 import paterben.spreadsheet_eval.Model.BinaryOperatorToken;
 import paterben.spreadsheet_eval.Model.BinaryOperatorTokenType;
+import paterben.spreadsheet_eval.Model.CellId;
 import paterben.spreadsheet_eval.Model.CellReferenceToken;
-import paterben.spreadsheet_eval.Model.Column;
 import paterben.spreadsheet_eval.Model.NumberToken;
 
 public class TokenParserTest {
     @Test
     void testParseCellReference() {
         assertEquals(
-                new CellReferenceToken(new Column("AA"), 11),
+                new CellReferenceToken(new CellId("AA", 11)),
                 TokenParser.parseTokenFromString("aa11"));
         assertEquals(
-                new CellReferenceToken(new Column("Z"), 3),
+                new CellReferenceToken(new CellId("Z", 3)),
                 TokenParser.parseTokenFromString("Z3"));
     }
 

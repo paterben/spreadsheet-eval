@@ -1,7 +1,5 @@
 package paterben.spreadsheet_eval.Core;
 
-import paterben.spreadsheet_eval.Model.Column;
-
 public class ColumnGenerator {
     private int index = 1;
     private static final int NumLetters = 26;
@@ -12,7 +10,7 @@ public class ColumnGenerator {
     /**
      * Returns the next column: A, B, ..., Z, AA, ...
      */
-    public Column Next() {
+    public String Next() {
         return ColumnAtIndex(index++);
     }
 
@@ -20,7 +18,7 @@ public class ColumnGenerator {
      * Returns the indexed column in this order: A, B, ..., Z, AA, ...
      * @param idx The column index (starting at 0 for A).
      */
-    public static Column ColumnAtIndex(int idx) {
+    public static String ColumnAtIndex(int idx) {
         if (idx < 1) {
             throw new IllegalArgumentException("Invalid column index: " + idx);
         }
@@ -32,6 +30,6 @@ public class ColumnGenerator {
             sb.append(c);
         }
         sb.reverse();
-        return new Column(sb.toString());
+        return sb.toString();
     }
 }

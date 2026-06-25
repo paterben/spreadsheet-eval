@@ -4,28 +4,18 @@ package paterben.spreadsheet_eval.Model;
  * A cell reference token, e.g. A3.
  */
 public class CellReferenceToken extends Token {
-    private Column column;
-    private int row;
+    private CellId cellId;
 
-    public CellReferenceToken(Column column, int row) {
-        this.column = column;
-        this.row = row;
+    public CellReferenceToken(CellId cellId) {
+        this.cellId = cellId;
     }
 
-    public Column getColumn() {
-        return column;
+    public CellId getCellId() {
+        return cellId;
     }
 
-    public void setColumn(Column column) {
-        this.column = column;
-    }
-
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
+    public void setCellId(CellId cellId) {
+        this.cellId = cellId;
     }
 
     @Override
@@ -37,8 +27,7 @@ public class CellReferenceToken extends Token {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((column == null) ? 0 : column.hashCode());
-        result = prime * result + row;
+        result = prime * result + ((cellId == null) ? 0 : cellId.hashCode());
         return result;
     }
 
@@ -51,18 +40,16 @@ public class CellReferenceToken extends Token {
         if (getClass() != obj.getClass())
             return false;
         CellReferenceToken other = (CellReferenceToken) obj;
-        if (column == null) {
-            if (other.column != null)
+        if (cellId == null) {
+            if (other.cellId != null)
                 return false;
-        } else if (!column.equals(other.column))
-            return false;
-        if (row != other.row)
+        } else if (!cellId.equals(other.cellId))
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "CellReferenceToken [column=" + column + ", row=" + row + "]";
+        return "CellReferenceToken [cellId=" + cellId + "]";
     }
 }
