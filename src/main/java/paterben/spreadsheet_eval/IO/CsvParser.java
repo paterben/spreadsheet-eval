@@ -11,7 +11,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
-import paterben.spreadsheet_eval.ColumnGenerator;
+import paterben.spreadsheet_eval.Core.ColumnGenerator;
 import paterben.spreadsheet_eval.Model.Cell;
 import paterben.spreadsheet_eval.Model.Token;
 

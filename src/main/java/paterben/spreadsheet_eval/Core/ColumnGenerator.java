@@ -1,4 +1,4 @@
-package paterben.spreadsheet_eval;
+package paterben.spreadsheet_eval.Core;
 
 import paterben.spreadsheet_eval.Model.Column;
 
