@@ -19,7 +19,7 @@ import paterben.spreadsheet_eval.Model.NumberToken;
 public class CsvParserTest {
 
     @Test
-    void parseValidCsv() throws FileNotFoundException, IOException {
+    void testParseValidCsv() throws FileNotFoundException, IOException {
         // Arrange
         String csvData = "10,       1 3 +,  2 3 -\n" +
                 "b1 b2 *,  a1";
@@ -48,7 +48,7 @@ public class CsvParserTest {
     }
 
     @Test
-    void parseEmptyCsv() throws FileNotFoundException, IOException {
+    void testParseEmptyCsv() throws FileNotFoundException, IOException {
         // Arrange
         StringReader reader = new StringReader("");
 
