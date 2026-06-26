@@ -17,7 +17,6 @@ import paterben.spreadsheet_eval.Model.CellReferenceToken;
 import paterben.spreadsheet_eval.Model.NumberToken;
 
 public class CsvParserTest {
-
     @Test
     void testParseValidCsv() throws FileNotFoundException, IOException {
         // Arrange
