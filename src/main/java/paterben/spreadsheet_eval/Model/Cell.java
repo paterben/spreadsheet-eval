@@ -10,6 +10,7 @@ public class Cell {
     private List<Token> expression;
 
     public Cell(CellId id, List<Token> expression) {
+        this.id = id;
         this.expression = expression;
     }
 
