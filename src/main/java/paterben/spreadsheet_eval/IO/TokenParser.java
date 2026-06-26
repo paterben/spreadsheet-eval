@@ -12,7 +12,7 @@ import paterben.spreadsheet_eval.Model.Token;
 
 public class TokenParser {
     // Matches decimals and integers, e.g. 12, -3.14, .5.
-    private static Pattern NumberPattern = Pattern.compile("^[+-]?\\d*\\.?\\d+$");
+    private static final Pattern NumberPattern = Pattern.compile("^[+-]?\\d*\\.?\\d+$");
 
     /**
      * Parses a string into a token.

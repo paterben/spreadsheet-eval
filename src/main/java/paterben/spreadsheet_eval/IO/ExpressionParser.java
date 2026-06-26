@@ -9,7 +9,7 @@ import paterben.spreadsheet_eval.Model.Token;
 
 public class ExpressionParser {
     // Matches any sequence of characters that don't contain spaces.
-    private static Pattern ExprPattern = Pattern.compile("[^ ]+");
+    private static final Pattern ExprPattern = Pattern.compile("[^ ]+");
 
     /**
      * Parses an expression into a list of tokens.

@@ -60,7 +60,7 @@ public class CellId {
     }
 
     // Group 1: column name, group 2: row num.
-    private static Pattern CellIdPattern = Pattern.compile("^([a-zA-Z]+)(\\d+)$");
+    private static final Pattern CellIdPattern = Pattern.compile("^([a-zA-Z]+)(\\d+)$");
 
     /**
      * Returns whether the given string can be parsed into a cell ID.
