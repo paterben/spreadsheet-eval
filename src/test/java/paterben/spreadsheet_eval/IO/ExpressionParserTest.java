@@ -30,7 +30,6 @@ public class ExpressionParserTest {
             ExpressionParser.parseExpressionIntoTokens(" a1   b1 + 2 / ,");
             fail();
         } catch (IllegalArgumentException e) {
-            // Assert
             assertThat(e.getMessage()).contains("invalid token");
         }
     }
