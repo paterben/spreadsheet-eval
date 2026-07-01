@@ -16,7 +16,7 @@ public class ColumnGenerator {
 
     /**
      * Returns the indexed column in this order: A, B, ..., Z, AA, ...
-     * @param idx The column index (starting at 0 for A).
+     * @param idx The column index (starting at 1 for A).
      */
     public static String ColumnAtIndex(int idx) {
         if (idx < 1) {
